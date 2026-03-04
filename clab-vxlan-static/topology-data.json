@@ -1,0 +1,305 @@
+{
+  "name": "vxlan-static",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-6846f7898d3b",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "h1": {
+      "index": "0",
+      "shortname": "h1",
+      "longname": "clab-vxlan-static-h1",
+      "fqdn": "h1.vxlan-static.io",
+      "group": "",
+      "labdir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/h1",
+      "kind": "linux",
+      "image": "alpine:3.20",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.8",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::8",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-6846f7898d3b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/h1",
+        "clab-node-longname": "clab-vxlan-static-h1",
+        "clab-node-name": "h1",
+        "clab-node-type": "",
+        "clab-owner": "lakhan",
+        "clab-topo-file": "/home/lakhan/clab-labs/01-evpn-vxlan/vxlan-static.clab.yml",
+        "containerlab": "vxlan-static"
+      },
+      "port-bindings": [
+      ]
+    },
+    "h2": {
+      "index": "1",
+      "shortname": "h2",
+      "longname": "clab-vxlan-static-h2",
+      "fqdn": "h2.vxlan-static.io",
+      "group": "",
+      "labdir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/h2",
+      "kind": "linux",
+      "image": "alpine:3.20",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.9",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::9",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-6846f7898d3b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/h2",
+        "clab-node-longname": "clab-vxlan-static-h2",
+        "clab-node-name": "h2",
+        "clab-node-type": "",
+        "clab-owner": "lakhan",
+        "clab-topo-file": "/home/lakhan/clab-labs/01-evpn-vxlan/vxlan-static.clab.yml",
+        "containerlab": "vxlan-static"
+      },
+      "port-bindings": [
+      ]
+    },
+    "leaf1": {
+      "index": "2",
+      "shortname": "leaf1",
+      "longname": "clab-vxlan-static-leaf1",
+      "fqdn": "leaf1.vxlan-static.io",
+      "group": "",
+      "labdir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/leaf1",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.11",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::b",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-6846f7898d3b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/leaf1",
+        "clab-node-longname": "clab-vxlan-static-leaf1",
+        "clab-node-name": "leaf1",
+        "clab-node-type": "",
+        "clab-owner": "lakhan",
+        "clab-topo-file": "/home/lakhan/clab-labs/01-evpn-vxlan/vxlan-static.clab.yml",
+        "containerlab": "vxlan-static"
+      },
+      "port-bindings": [
+      ]
+    },
+    "leaf2": {
+      "index": "3",
+      "shortname": "leaf2",
+      "longname": "clab-vxlan-static-leaf2",
+      "fqdn": "leaf2.vxlan-static.io",
+      "group": "",
+      "labdir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/leaf2",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.12",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::c",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-6846f7898d3b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/leaf2",
+        "clab-node-longname": "clab-vxlan-static-leaf2",
+        "clab-node-name": "leaf2",
+        "clab-node-type": "",
+        "clab-owner": "lakhan",
+        "clab-topo-file": "/home/lakhan/clab-labs/01-evpn-vxlan/vxlan-static.clab.yml",
+        "containerlab": "vxlan-static"
+      },
+      "port-bindings": [
+      ]
+    },
+    "sp1": {
+      "index": "4",
+      "shortname": "sp1",
+      "longname": "clab-vxlan-static-sp1",
+      "fqdn": "sp1.vxlan-static.io",
+      "group": "",
+      "labdir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/sp1",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.10",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::a",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-6846f7898d3b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/sp1",
+        "clab-node-longname": "clab-vxlan-static-sp1",
+        "clab-node-name": "sp1",
+        "clab-node-type": "",
+        "clab-owner": "lakhan",
+        "clab-topo-file": "/home/lakhan/clab-labs/01-evpn-vxlan/vxlan-static.clab.yml",
+        "containerlab": "vxlan-static"
+      },
+      "port-bindings": [
+      ]
+    },
+    "sp2": {
+      "index": "5",
+      "shortname": "sp2",
+      "longname": "clab-vxlan-static-sp2",
+      "fqdn": "sp2.vxlan-static.io",
+      "group": "",
+      "labdir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/sp2",
+      "kind": "linux",
+      "image": "frrouting/frr:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.13",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::d",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-6846f7898d3b",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lakhan/clab-labs/01-evpn-vxlan/clab-vxlan-static/sp2",
+        "clab-node-longname": "clab-vxlan-static-sp2",
+        "clab-node-name": "sp2",
+        "clab-node-type": "",
+        "clab-owner": "lakhan",
+        "clab-topo-file": "/home/lakhan/clab-labs/01-evpn-vxlan/vxlan-static.clab.yml",
+        "containerlab": "vxlan-static"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "sp1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:a4:94:0b",
+          "peer": "z"
+        },
+        "z": {
+          "node": "leaf1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:02:72:b9",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sp2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:ed:a9:4e",
+          "peer": "z"
+        },
+        "z": {
+          "node": "leaf1",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:da:f8:88",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sp1",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:6b:d7:30",
+          "peer": "z"
+        },
+        "z": {
+          "node": "leaf2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:ee:cc:e7",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "sp2",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:8f:40:87",
+          "peer": "z"
+        },
+        "z": {
+          "node": "leaf2",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:bb:f4:bc",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "leaf1",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:e0:a9:5e",
+          "peer": "z"
+        },
+        "z": {
+          "node": "h1",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:68:da:26",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "leaf2",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:e9:9e:f2",
+          "peer": "z"
+        },
+        "z": {
+          "node": "h2",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:f6:0e:a7",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}

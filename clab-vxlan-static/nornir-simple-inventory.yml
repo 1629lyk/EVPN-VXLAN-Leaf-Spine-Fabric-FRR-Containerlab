@@ -1,0 +1,31 @@
+---
+h1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.8
+h2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.9
+leaf1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.11
+leaf2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.12
+sp1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.10
+sp2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.13
