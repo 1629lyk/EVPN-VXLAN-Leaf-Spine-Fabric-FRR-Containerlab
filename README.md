@@ -198,6 +198,26 @@ In this project:
 
 ---
 
+## Installations
+
+### Install containerlab using the official script (inside Ubuntu WSL)
+```bash
+sudo apt update && sudo apt -y install curl
+curl -sL https://containerlab.dev/setup | sudo -E bash -s "all"
+```
+
+### After install, enable non-sudo docker (recommended by containerlab)
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+### Validate
+```bash
+docker version
+containerlab version
+```
+
 
 ## Repository Layout (What each file does)
 
