@@ -198,27 +198,6 @@ In this project:
 
 ---
 
-## Installations
-
-### Install containerlab using the official script (inside Ubuntu WSL)
-```bash
-sudo apt update && sudo apt -y install curl
-curl -sL https://containerlab.dev/setup | sudo -E bash -s "all"
-```
-
-### After install, enable non-sudo docker (recommended by containerlab)
-```bash
-sudo usermod -aG docker $USER
-newgrp docker
-```
-
-### Validate
-```bash
-docker version
-containerlab version
-```
-
-
 ## Repository Layout (What each file does)
 
 - `vxlan-static.clab.yml`
@@ -265,23 +244,27 @@ Control-plane advertisements (Type-2, Type-5) ensure correct forwarding decision
 
 ---
 
+## Installations
 
-## Installation
+### Install containerlab using the official script (inside Ubuntu WSL)
+```bash
+sudo apt update && sudo apt -y install curl
+curl -sL https://containerlab.dev/setup | sudo -E bash -s "all"
+```
 
-### 1) Install Docker
-Follow the official Docker installation method for your platform. 
+### After install, enable non-sudo docker (recommended by containerlab)
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+### Validate
 ```bash
 docker version
-docker ps
-````
-
-### 2) Install Containerlab
-
-```bash
 containerlab version
 ```
 
-### 3) (Optional) Install Graphviz for diagrams
+### (Optional) Install Graphviz for diagrams
 
 ```bash
 sudo apt-get update
@@ -292,20 +275,13 @@ sudo apt-get install -y graphviz
 
 ## Quickstart
 
-<!-- ### 1) Clone repo
-
-```bash
-git clone <your-github-repo-url>
-cd <repo-directory> -->
-```
-
-### 2) Deploy the lab
+### Deploy the lab
 
 ```bash
 sudo containerlab deploy -t vxlan-static.clab.yml
 ```
 
-### 3) Validate host-to-host reachability
+### Validate host-to-host reachability
 
 ```bash
 sudo containerlab exec -t vxlan-static.clab.yml --name vxlan-static --label clab-node-name=h1 --cmd "ping -c 3 192.168.102.12"
@@ -313,7 +289,7 @@ sudo containerlab exec -t vxlan-static.clab.yml --name vxlan-static --label clab
 
 Expected: 0% packet loss.
 
-### 4) Destroy the lab
+### Destroy the lab
 
 ```bash
 sudo containerlab destroy -t vxlan-static.clab.yml
@@ -358,7 +334,7 @@ sudo containerlab exec -t vxlan-static.clab.yml --name vxlan-static --label clab
 
 ## Verification Checklist
 
-### A) Underlay (eBGP IPv4 unicast)
+### Underlay (eBGP IPv4 unicast)
 
 **BGP adjacency state (leaf and spine):**
 
@@ -379,7 +355,7 @@ sudo docker exec -it clab-vxlan-static-leaf1 ping -c 3 -I 10.255.1.1 10.255.1.2
 
 ---
 
-### B) BFD
+### BFD
 
 **BFD peer status and timers:**
 
@@ -389,7 +365,7 @@ sudo docker exec -it clab-vxlan-static-leaf1 vtysh -c "show bfd peers"
 
 ---
 
-### C) EVPN control-plane
+### EVPN control-plane
 
 **EVPN session status:**
 
@@ -412,7 +388,7 @@ sudo docker exec -it clab-vxlan-static-leaf1 vtysh -c "show bgp l2vpn evpn route
 
 ---
 
-### D) Tenant VRF and kernel dataplane
+### Tenant VRF and kernel dataplane
 
 **FRR view (VRF routes):**
 
@@ -442,7 +418,7 @@ sudo containerlab exec -t vxlan-static.clab.yml --name vxlan-static --label clab
 
 ---
 
-### E) VXLAN interface + bridge programming
+### VXLAN interface + bridge programming
 
 **VXLAN interface counters:**
 
@@ -509,24 +485,7 @@ Measurement approach:
 
 ## Challenges Encountered (and how they were resolved)
 
-### 1) `containerlab exec` syntax differences
-
-Observed:
-
-* `containerlab exec` required `--cmd`, and the selector needed correct lab name + label filters.
-
-* Use:
-
-  ```bash
-  sudo containerlab exec -t <topo.yml> --name <labname> --label clab-node-name=<node> --cmd "<command>"
-  ```
-* Verify usage with:
-
-  ```bash
-  containerlab exec --help
-  ```
-
-### 2) Ping from loopbacks failed unless source was specified
+###  Ping from loopbacks failed unless source was specified
 
 Observed:
 
@@ -534,7 +493,7 @@ Observed:
   Resolution:
 * Use `ping -I <loopback-ip> <remote-loopback>`.
 
-### 3) VRF route lookups appearing to use Docker `eth0` (misleading)
+### VRF route lookups appearing to use Docker `eth0` (misleading)
 
 Observed:
 
@@ -700,6 +659,4 @@ This project successfully implements a production-aligned EVPN/VXLAN fabric usin
 - Failure convergence
 - Linux-based control/data-plane interaction
 
-The architecture and troubleshooting approach reflect real-world operational challenges in modern data center networks. The lab is portable, reproducible, and suitable for advanced network engineering portfolios.
-
-It serves as both a technical validation and a practical learning platform for scalable network design.
+The architecture and troubleshooting approach reflect real-world operational challenges in modern data center networks.
